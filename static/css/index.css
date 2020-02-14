@@ -1,0 +1,82 @@
+.text-300 {
+    font-weight: 300;
+}
+
+.text-lg {
+    font-size: 20px;
+}
+
+.tag {
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 5px!important;
+    margin-right: 5px;
+    border: 1px solid #ddd;
+    border-radius: 1020px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.tag:hover {
+    color: #333;
+    background-color: #e6e6e6;
+}
+
+a:hover{
+    text-decoration: none!important;
+}
+
+.tag-text {
+    color: #5a5a5a !important;
+    font-size: 10px;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tag-count {
+    background: #17807d;
+    opacity: .85;
+    top: 0;
+    padding: 1px 5px;
+    color: #fff;
+    font-size: 10px;
+    display: inline-block;
+    min-width: 10px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+.icon{
+    height: 40px;
+    width: 40px;
+}
+
+.sidebar-title{
+    padding-bottom: 10px;
+}
+
+i.fa{
+    color: #21c05d;
+    padding-right: 10px;
+}
+
+.category{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.category:hover{
+    color: #333;
+    background-color: #e6e6e6;
+}
