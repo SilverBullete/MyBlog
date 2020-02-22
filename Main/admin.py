@@ -47,7 +47,8 @@ class BlogAdmin(admin.ModelAdmin):
             src = image.split("src=\"")[1].split("\"")[0]
             filename = "".join(src.split("/")[-1].split("\'")[0].split("%20"))
             content = content.replace(src, "/media/" + str(obj.id) + "/" + filename)
-        content.replace("<code>", "<code class='language-python'>")
+        content = content.replace("<code>", "<code class='language-python'>")
+        content = content.replace("class=\"code\"", "")
         obj.content = content
         super(BlogAdmin, self).save_model(request, obj, form, change)
 
