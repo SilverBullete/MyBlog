@@ -34,8 +34,14 @@ class BlogAdmin(admin.ModelAdmin):
     inlines = [TagInline, CategoryInline, ImageInline]
 
     def save_model(self, request, obj, form, change):
+        id = Blog.objects.all().order_by('-id')[0].id + 1
         content = obj.content
         content = "".join(content.split("\n"))
+        code_language = ""
+        if content[0] == '[':
+            temp_list = content.split(']', 1)
+            code_language = temp_list[0][1:]
+            content = temp_list[1]
         style = re.findall("<head>.*?</head>", content)
         header = re.findall("<header>.*?</header>", content)
         for i in style:
@@ -46,8 +52,8 @@ class BlogAdmin(admin.ModelAdmin):
         for image in images:
             src = image.split("src=\"")[1].split("\"")[0]
             filename = "".join(src.split("/")[-1].split("\'")[0].split("%20"))
-            content = content.replace(src, "/media/" + str(obj.id) + "/" + filename)
-        content = content.replace("<code>", "<code class='language-python'>")
+            content = content.replace(src, "/media/" + str(id) + "/" + filename)
+        content = content.replace("<code>", "<code class='language-"+ code_language +"'>")
         content = content.replace("class=\"code\"", "")
         obj.content = content
         super(BlogAdmin, self).save_model(request, obj, form, change)
